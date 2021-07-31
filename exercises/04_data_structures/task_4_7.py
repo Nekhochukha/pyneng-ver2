@@ -16,3 +16,8 @@ this stage it is difficult otherwise test the result.
 """
 
 mac = "AAAA:BBBB:CCCC"
+oct1, oct2, oct3 = mac.split(':')
+oct1_bin = bin(int(oct1, 16)).lstrip('0b')
+oct2_bin = bin(int(oct2, 16)).lstrip('0b')
+oct3_bin = bin(int(oct3, 16)).lstrip('0b')
+print(oct1_bin + oct2_bin + oct3_bin)
