@@ -48,7 +48,20 @@ switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 2,3,4,5
 """
-
+rezhim = {
+    "access" : [
+    "switchport mode access",
+    "switchport access vlan {}",
+    "switchport nonegotiate",
+    "spanning-tree portfast",
+    "spanning-tree bpduguard enable",
+    ],
+    "trunk" : [
+    "switchport trunk encapsulation dot1q",
+    "switchport mode trunk",
+    "switchport trunk allowed vlan {}",
+    ]}
+'''
 access_template = [
     "switchport mode access",
     "switchport access vlan {}",
@@ -62,3 +75,11 @@ trunk_template = [
     "switchport mode trunk",
     "switchport trunk allowed vlan {}",
 ]
+'''
+rezhim_intrfc = input('Введите режим интерфейса (access/trunk): ')
+type_number_intrfc = input('Введите тип и номер интерфейса: ')
+vlan = input('Введите номер влан(ов): ')
+
+#print('\n' + '-' * 30)
+print('interface {}'.format(type_number_intrfc))
+print('\n'.join(rezhim[rezhim_intrfc]).format(vlan))

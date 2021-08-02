@@ -30,6 +30,7 @@ net_addr_mask = input('Введите адрес сети в формате "10.
 #net_addr_mask = '10.1.1.0/20'
 mask_net = net_addr_mask.split('/')[-1]
 addr_net = net_addr_mask.split('/')[0]
+#Выше написанные строчки можно записать так: ip, mask = network.split("/")
 oct1, oct2, oct3, oct4 = addr_net.split('.')
 oct1 = int(oct1)
 oct2 = int(oct2)
