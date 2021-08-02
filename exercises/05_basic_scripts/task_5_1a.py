@@ -19,6 +19,9 @@ All tasks must be completed using only the topics covered. That is, this task ca
 solved without using the if condition.
 """
 
+name_switch = input('Введите имя устройства: ')
+name_parametr = input('Введите имя параметра: ')
+
 london_co = {
     "r1": {
         "location": "21 New Globe Walk",
@@ -44,3 +47,5 @@ london_co = {
         "routing": True,
     },
 }
+
+print(london_co[name_switch][name_parametr])
