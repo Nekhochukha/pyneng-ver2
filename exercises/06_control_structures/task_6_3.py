@@ -50,20 +50,12 @@ interface FastEthernet0/7
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
 
-access_template = [
-    "switchport mode access",
-    "switchport access vlan",
-    "spanning-tree portfast",
-    "spanning-tree bpduguard enable",
-]
-
 trunk_template = [
     "switchport trunk encapsulation dot1q",
     "switchport mode trunk",
     "switchport trunk allowed vlan",
 ]
 
-access = {"0/12": "10", "0/14": "11", "0/16": "17", "0/17": "150"}
 trunk = {
     "0/1": ["add", "10", "20"],
     "0/2": ["only", "11", "30"],
@@ -71,11 +63,18 @@ trunk = {
     "0/5": ["add", "10", "21"],
     "0/7": ["only", "30"],
 }
+#print(trunk.items())
+for intf, vlan_cmd in trunk.items():
+    print(f"interface FastEthernet {intf}")
+    if vlan_cmd[0] == 'add':
+        vlan_cmd_end = 'add ' + ','.join(vlan_cmd[1:])
+    if vlan_cmd[0] == 'del':
+        vlan_cmd_end = 'remove ' + ','.join(vlan_cmd[1:])
+    if vlan_cmd[0] == 'only':
+        vlan_cmd_end = ','.join(vlan_cmd[1:])
 
-# for intf, vlan in access.items():
-#     print("interface FastEthernet" + intf)
-#     for command in access_template:
-#         if command.endswith("access vlan"):
-#             print(f" {command} {vlan}")
-#         else:
-#             print(f" {command}")
+    for command in trunk_template:
+        if command.endswith("allowed vlan"):
+            print(f" {command} {vlan_cmd_end}")
+        else:
+            print(f" {command}")

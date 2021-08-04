@@ -13,3 +13,12 @@ Restriction: All tasks must be done using the topics covered in this and previou
 """
 
 mac = ["aabb:cc80:7000", "aabb:dd80:7340", "aabb:ee80:7000", "aabb:ff80:7000"]
+result = []
+
+for item in mac:
+    result.append(item.replace(":", "."))
+#    str_tmp = item
+#    str_tmp = '.'.join(str_tmp.split(':'))
+#    result.append(str_tmp)
+
+print(result)
