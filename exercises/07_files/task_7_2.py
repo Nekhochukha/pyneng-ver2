@@ -40,3 +40,12 @@ interface Ethernet0/3
 ...
 
 """
+from sys import argv
+
+filename = argv[1]
+#filename = "config_sw1.txt"
+
+with open(filename, 'r') as f:
+    for line in f:
+        if line.rstrip() and not '!' in line:
+            print(line.rstrip())   # print добавляет еще один перевод строки - убираем rstrip`ом

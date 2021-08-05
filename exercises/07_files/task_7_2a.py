@@ -16,4 +16,21 @@ Restriction: All tasks must be done using the topics covered in this and previou
 
 """
 
+from sys import argv
+
+filename = argv[1]
+
 ignore = ["duplex", "alias", "configuration"]
+
+#filename = "config_sw1.txt"
+
+with open(filename, 'r') as f:
+    for line in f:
+        if '!' in line:
+            pass
+        elif ignore[0] in line or ignore[1] in line or ignore[2] in line:
+            pass
+        elif not line.rstrip():
+            pass
+        else:
+            print(line.rstrip())
