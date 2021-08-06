@@ -17,4 +17,24 @@ Restriction: All tasks must be done using the topics covered in this and previou
 
 """
 
+
+from sys import argv
+
+filename_src = argv[1]
+filename_dst = argv[2]
+
+
 ignore = ["duplex", "alias", "configuration"]
+
+
+with open(filename_src, 'r') as src,  open(filename_dst, 'w') as dst:
+    for line in src:
+        if '!' in line:
+            pass
+        elif ignore[0] in line or ignore[1] in line or ignore[2] in line:
+            pass
+        elif not line.rstrip():
+            pass
+        else:
+           # print(line.rstrip())
+           dst.write(line)
