@@ -24,3 +24,49 @@ Check the operation of the function using the config_sw1.txt file.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
+
+
+
+'''
+def generate_trunk_config(intf_vlan_mapping, trunk_template):
+    """
+    intf_vlan_mapping is a dictionary with interface-VLAN mapping:
+         {'FastEthernet0/1': [10, 20],
+          'FastEthernet0/2': [11, 30],
+          'FastEthernet0/4': [17]}
+    access_template - list of commands for the port in access mode
+
+    Returns a list of commands.
+    """
+    result = []
+    for intf, vlans in intf_vlan_mapping.items():
+        result.append(f"interface {intf}")
+        for command in trunk_template:
+            if command.endswith("allowed vlan"):
+                vlans_str =  ','.join(str(s) for s in vlans)
+                result.append(f"{command} {vlans_str}")
+            else:
+                result.append(command)
+    return result
+
+print(generate_trunk_config(trunk_config, trunk_mode_template))
+'''
+
+
+filename = "config_sw1.txt"
+
+def get_int_vlan_map(config_filename):
+    access_dict = {}
+    trunk_dict = {}
+    with open(config_filename, 'r') as src:
+        for line in src:
+            if line.rstrip() and not "!" in line:
+                if "thernet" in line:
+                    num_intf = line.split()[1]
+                elif "access vlan" in line:
+                    access_dict[num_intf] = int(line.split()[-1])
+                elif "allowed vlan" in line:
+                    trunk_dict[num_intf] = [int(n) for n in line.split()[-1].split(',')]
+    return access_dict, trunk_dict
+print(get_int_vlan_map(filename))
+

@@ -23,3 +23,22 @@ Check the operation of the function using the config_sw2.txt file.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
+filename = "config_sw2.txt"
+
+def get_int_vlan_map(config_filename):
+    access_dict = {}
+    trunk_dict = {}
+    with open(config_filename, 'r') as src:
+        for line in src:
+            if line.rstrip() and not "!" in line:
+                if "thernet" in line:
+                    num_intf = line.split()[1]
+                elif "access vlan" in line:
+                    access_dict[num_intf] = int(line.split()[-1])
+                elif "mode access" in line:
+                    access_dict[num_intf] = 1
+                elif "allowed vlan" in line:
+                    trunk_dict[num_intf] = [int(n) for n in line.split()[-1].split(',')]
+    return access_dict, trunk_dict
+print(get_int_vlan_map(filename))
+
