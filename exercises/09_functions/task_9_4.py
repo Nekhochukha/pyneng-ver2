@@ -44,6 +44,9 @@ in test_task_9_4.py test):
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
+from sys import argv
+
+filename = argv[1]
 
 ignore = ["duplex", "alias", "configuration"]
 
@@ -64,3 +67,21 @@ def ignore_command(command, ignore):
         if word in command:
             ignore_status = True
     return ignore_status
+
+
+#filename = "config_sw1.txt"
+confg_dict = {}
+
+def convert_config_to_dict(config_filename):
+    with open(config_filename, 'r') as src:
+        for line in src:
+            if not ignore_command(line.rstrip(), ignore) and not "!" in line:
+                if not line.startswith(' '):
+                    global_command = line.rstrip()
+                    confg_dict[global_command] = []
+                else:
+                    confg_dict[global_command].append(line.rstrip())
+
+    return confg_dict
+print(convert_config_to_dict(filename))
+
