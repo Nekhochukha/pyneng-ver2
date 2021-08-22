@@ -52,6 +52,17 @@ def parse_cdp_neighbors(command_output):
             hostname_port = (hostname, line_tuple[1] + line_tuple[2])
             neighbors_port = (line_tuple[0], line_tuple[-2] + line_tuple[-1])
             dict_neighbors[hostname_port] = neighbors_port
+            '''
+            Можно было сделать с помощью распаковки
+            line = line.strip()
+        columns = line.split()
+        if ">" in line:
+            hostname = line.split(">")[0]
+        # 3 индекс это столбец holdtime - там всегда число
+        elif len(columns) >= 5 and columns[3].isdigit():
+            r_host, l_int, l_int_num, *other, r_int, r_int_num = columns
+            result[(hostname, l_int + l_int_num)] = (r_host, r_int + r_int_num)
+            '''
     return dict_neighbors
 
 
