@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-Task 18.2
+Задание 18.2
 
-Create send_config_commands function
+Создать функцию send_config_commands
 
-The function connects via SSH (using netmiko) to ONE device and executes
-a list of commands in configuration mode based on the passed arguments.
+Функция подключается по SSH (с помощью netmiko) к ОДНОМУ устройству и выполняет
+перечень команд в конфигурационном режиме на основании переданных аргументов.
 
-Function parameters:
-* device - a dictionary with parameters for connecting to a device
-* config_commands - list of configuration commands to be executed
+Параметры функции:
+* device - словарь с параметрами подключения к устройству
+* config_commands - список команд, которые надо выполнить
 
-The function should return a string with the results of the command:
+Функция возвращает строку с результатами выполнения команды:
 
 In [7]: r1
 Out[7]:
@@ -40,8 +40,9 @@ R1(config)#no logging console
 R1(config)#end
 R1#
 
-The script should send command command to all devices from the devices.yaml file
-using the send_config_commands function.
+
+Скрипт должен отправлять команду command на все устройства из файла devices.yaml
+с помощью функции send_config_commands.
 """
 
 commands = ["logging 10.255.255.1", "logging buffered 20010", "no logging console"]

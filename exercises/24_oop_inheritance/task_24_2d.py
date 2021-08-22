@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 24.2d
+Задание 24.2d
 
-Copy class MyNetmiko from task 24.2c or task 24.2b.
+Скопировать класс MyNetmiko из задания 24.2c или задания 24.2b.
 
-Add the ignore_errors parameter to the send_config_set method.
-If ignore_errors=True, no error checking is needed and the method
-should work exactly like the send_config_set method in netmiko.
-If ignore_errors=False, errors should be checked.
+Добавить параметр ignore_errors в метод send_config_set.
+Если передано истинное значение, не надо выполнять проверку на ошибки и метод должен
+работать точно так же как метод send_config_set в netmiko.
+Если значение ложное, ошибки должны проверяться.
 
-By default, errors should be ignored.
+По умолчанию ошибки должны игнорироваться.
+
 
 In [2]: from task_24_2d import MyNetmiko
 
@@ -29,5 +30,5 @@ ErrorInCommand                            Traceback (most recent call last)
 ----> 1 r1.send_config_set('lo', ignore_errors=False)
 
 ...
-ErrorInCommand: When executing the command "lo" on device 192.168.100.1, an error occurred "Incomplete command."
+ErrorInCommand: При выполнении команды "lo" на устройстве 192.168.100.1 возникла ошибка "Incomplete command."
 """

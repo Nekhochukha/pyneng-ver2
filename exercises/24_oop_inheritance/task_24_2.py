@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 24.2
+Задание 24.2
 
-Create a MyNetmiko class that inherits the CiscoIosSSH class from netmiko.
-Write the __init__ method in the MyNetmiko class so that after connecting
-via SSH, it switches to enable mode.
+Создать класс MyNetmiko, который наследует класс CiscoIosSSH из netmiko.
 
-To do this, the __init__ method must first call the __init__ method of
-the CiscoIosSSH class, and then switch to enable mode.
+Переписать метод __init__ в классе MyNetmiko таким образом, чтобы после подключения
+по SSH выполнялся переход в режим enable.
 
-Check that the send_command and send_config_set methods are available
-in the MyNetmiko class (they are inherited automatically, this is just for checking).
+Для этого в методе __init__ должен сначала вызываться метод __init__ класса CiscoIosSSH,
+а затем выполнятся переход в режим enable.
+
+Проверить, что в классе MyNetmiko доступны методы send_command и send_config_set
+(они наследуются автоматически, это только для проверки).
 
 In [2]: from task_24_2 import MyNetmiko
 

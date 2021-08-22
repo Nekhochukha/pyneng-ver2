@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Task 21.3
+Задание 21.3
 
-Create function parse_command_dynamic.
+Создать функцию parse_command_dynamic.
 
-Function parameters:
-* command_output - command output (string)
-* attributes_dict - an attribute dict containing the following key-value pairs:
- * 'Command': command
- * 'Vendor': vendor
-* index_file is the name of the file where the correspondence between commands
-  and templates is stored. The default is "index"
-* templ_path - directory where templates are stored. The default is "templates"
+Параметры функции:
+* command_output - вывод команды (строка)
+* attributes_dict - словарь атрибутов, в котором находятся такие пары ключ-значение:
+ * 'Command': команда
+ * 'Vendor': вендор
+* index_file - имя файла, где хранится соответствие между командами и шаблонами.
+  Значение по умолчанию - "index"
+* templ_path - каталог, где хранятся шаблоны. Значение по умолчанию - "templates"
 
-The function should return a list of dicts with the results
-of parsing the command output (as in task 21.1a):
-* keys - names of variables in the TextFSM template
-* values - parts of the output that correspond to variables
+Функция должна возвращать список словарей с результатами обработки
+вывода команды (как в задании 21.1a):
+* ключи - имена переменных в шаблоне TextFSM
+* значения - части вывода, которые соответствуют переменным
 
-Check the function on the output of the sh ip int br command.
+Проверить работу функции на примере вывода команды sh ip int br.
 """

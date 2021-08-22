@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 24.1
+Задание 24.1
 
-Create a CiscoSSH class that inherits the BaseSSH class
-from the base_connect_class.py file.
+Создать класс CiscoSSH, который наследует класс BaseSSH из файла base_connect_class.py.
 
-Create an __init__ method in the CiscoSSH class so that after connecting
-via SSH, it switches to enable mode.
+Создать метод __init__ в классе CiscoSSH таким образом, чтобы после подключения
+по SSH выполнялся переход в режим enable.
 
-To do this, the __init__ method must first call the __init__ method of
-the BaseSSH class, and then switch to enable mode.
+Для этого в методе __init__ должен сначала вызываться метод __init__ класса BaseSSH,
+а затем выполняться переход в режим enable.
 
 In [2]: from task_24_1 import CiscoSSH
 

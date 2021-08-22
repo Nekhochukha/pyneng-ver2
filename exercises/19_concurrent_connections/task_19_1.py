@@ -1,26 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Task 19.1
+Задание 19.1
 
-Create a ping_ip_addresses function that checks if IP addresses are pingable.
-Checking IP addresses should be done concurrent in different threads.
+Создать функцию ping_ip_addresses, которая проверяет пингуются ли IP-адреса.
+Проверка IP-адресов должна выполняться параллельно в разных потоках.
 
-Ping_ip_addresses function parameters:
-* ip_list - list of IP addresses
-* limit - maximum number of parallel threads (default 3)
+Параметры функции ping_ip_addresses:
+* ip_list - список IP-адресов
+* limit - максимальное количество параллельных потоков (по умолчанию 3)
 
-The function must return a tuple with two lists:
-* list of available IP addresses
-* list of unavailable IP addresses
+Функция должна возвращать кортеж с двумя списками:
+* список доступных IP-адресов
+* список недоступных IP-адресов
 
-You can create any additional functions to complete the task.
+Для выполнения задания можно создавать любые дополнительные функции.
 
-To check the availability of an IP address, use ping.
+Для проверки доступности IP-адреса, используйте ping.
 
-A hint about working with concurrent.futures:
-If you need to ping several IP addresses in different threads, you need to create
-a function that will ping one IP address, and then run this function in different
-threads for different IP addresses using concurrent.futures (this last part
-must be done in the ping_ip_addresses function).
-
+Подсказка о работе с concurrent.futures:
+Если необходимо пинговать несколько IP-адресов в разных потоках,
+надо создать функцию, которая будет пинговать один IP-адрес,
+а затем запустить эту функцию в разных потоках для разных
+IP-адресов с помощью concurrent.futures (это надо сделать в функции ping_ip_addresses).
 """

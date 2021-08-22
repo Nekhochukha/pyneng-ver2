@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 22.1c
+Задание 22.1c
 
-Copy the Topology class from task 22.1b and modify it.
+Изменить класс Topology из задания 22.1b.
 
-Add a delete_node method that deletes all connections to the specified device.
+Добавить метод delete_node, который удаляет все соединения с указаным устройством.
 
-If there is no such device, the message "There is no such device" is printed.
+Если такого устройства нет, выводится сообщение "Такого устройства нет".
 
-Topology creation:
+Создание топологии
 In [1]: t = Topology(topology_example)
 
 In [2]: t.topology
@@ -21,7 +21,7 @@ Out[2]:
  ('R3', 'Eth0/1'): ('R4', 'Eth0/0'),
  ('R3', 'Eth0/2'): ('R5', 'Eth0/0')}
 
-Removing a device:
+Удаление устройства:
 In [3]: t.delete_node('SW1')
 
 In [4]: t.topology
@@ -30,9 +30,9 @@ Out[4]:
  ('R3', 'Eth0/1'): ('R4', 'Eth0/0'),
  ('R3', 'Eth0/2'): ('R5', 'Eth0/0')}
 
-If there is no such device, the following message is printed:
+Если такого устройства нет, выводится сообщение:
 In [5]: t.delete_node('SW1')
-There is no such device
+Такого устройства нет
 
 """
 

@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 23.1a
+Задание 23.1a
 
-Copy and modify the IPAddress class from task 23.1.
+Скопировать и изменить класс IPAddress из задания 23.1.
 
-Add two string views for instances of the IPAddress class.
-How string representations should look like should be determined from
-the output below:
+Добавить два строковых представления для экземпляров класса IPAddress.
+Как дожны выглядеть строковые представления, надо определить из вывода ниже:
 
-An example of creating an instance of a class:
+Создание экземпляра
 In [5]: ip1 = IPAddress('10.1.1.1/24')
 
 In [6]: str(ip1)

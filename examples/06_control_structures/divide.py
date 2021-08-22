@@ -1,29 +1,28 @@
 # -*- coding: utf-8 -*-
 
 try:
-    a = input("Enter first number: ")
-    b = input("Enter second number: ")
-    print("Результат: ", int(a) / int(b))
+    a = input('Введите первое число: ')
+    b = input('Введите второе число: ')
+    print('Результат: ', int(a) / int(b))
 except ValueError:
-    print("Please enter only numbers")
+    print('Пожалуйста, вводите только числа')
 except ZeroDivisionError:
-    print("You can't divide by zero")
-
-"""
+    print('На ноль делить нельзя')
+'''
 Example:
 
 $ python divide.py
-Enter first number: 3
-Enter second number: 1
-Output:  3
+Введите первое число: 3
+Введите второе число: 1
+Результат:  3
 
 $ python divide.py
-Enter first number: 5
-Enter second number: 0
-Output: You can't divide by zero
+Введите первое число: 5
+Введите второе число: 0
+Результат:  На ноль делить нельзя
 
 $ python divide.py
-Enter first number: qewr
-Enter second number: 3
-Output:  Please enter only numbers
-"""
+Введите первое число: qewr
+Введите второе число: 3
+Результат:  Пожалуйста, вводите только числа
+'''

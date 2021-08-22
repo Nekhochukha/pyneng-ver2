@@ -7,17 +7,17 @@ sys.path.append("..")
 
 from pyneng_common_functions import check_function_exists, strip_empty_lines
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_templates_exists():
     assert os.path.exists(
         "templates/add_vlan_to_switch.txt"
-    ), "Template templates/add_vlan_to_switch.txt does not exist"
+    ), "Шаблон templates/add_vlan_to_switch.txt не существует"
 
 
 def test_function_return_value():
@@ -41,10 +41,10 @@ def test_function_return_value():
 
     assert (
         correct_value_vlan in return_value
-    ), "In the configuration, no VLAN was created and/or no VLAN name was assigned"
+    ), "В итоговой конфигурации не создан VLAN и/или не назначено имя VLAN"
     assert (
         correct_value_access in return_value
-    ), "In the final configuration, incorrect access configuration"
+    ), "В итоговой конфигурации неправильная настройка access"
     assert (
         correct_value_trunk1 in return_value and correct_value_trunk2 in return_value
-    ), "In the final configuration, incorrect trunk configuration"
+    ), "В итоговой конфигурации неправильная настройка trunk"

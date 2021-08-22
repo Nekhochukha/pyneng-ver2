@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 23.3a
+Задание 23.3a
 
-In this task, you need to make sure that instances of the Topology class
-are iterables. The base of the Topology class can be taken from either
-task 22.1x or task 23.3.
+В этом задании надо сделать так, чтобы экземпляры класса Topology
+были итерируемыми объектами.
+Основу класса Topology можно взять из любого задания 22.1x или задания 23.3.
 
-After creating an instance of a class, the instance should act like
-an iterable object. Each iteration should return a tuple that describes
-one connection. The order of output of connections can be any.
+После создания экземпляра класса, экземпляр должен работать как итерируемый объект.
+На каждой итерации должен возвращаться кортеж, который описывает одно соединение.
+Порядок вывода соединений может быть любым.
 
 
-An example of how the class works:
+Пример работы класса:
 
 In [1]: top = Topology(topology_example)
 
@@ -26,6 +26,8 @@ In [2]: for link in top:
 (('R3', 'Eth0/1'), ('R4', 'Eth0/0'))
 (('R3', 'Eth0/2'), ('R5', 'Eth0/0'))
 
+
+Проверить работу класса.
 """
 
 topology_example = {

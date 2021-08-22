@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 23.2
+Задание 23.2
 
-Copy the CiscoTelnet class from task 22.2 and add context manager
-support to the class. When exiting the context manager block, the connection
-should be closed.
+Скопировать класс CiscoTelnet из задания 22.2 и добавить классу поддержку
+работы в менеджере контекста.
+При выходе из блока менеджера контекста должно закрываться соединение.
 
-Example of work:
+Пример работы:
 
 In [14]: r1_params = {
     ...:     'ip': '192.168.100.1',
@@ -24,4 +24,20 @@ sh clock
 *19:17:20.244 UTC Sat Apr 6 2019
 R1#
 
+In [17]: with CiscoTelnet(**r1_params) as r1:
+    ...:     print(r1.send_show_command('sh clock'))
+    ...:     raise ValueError('Возникла ошибка')
+    ...:
+sh clock
+*19:17:38.828 UTC Sat Apr 6 2019
+R1#
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-17-f3141be7c129> in <module>
+      1 with CiscoTelnet(**r1_params) as r1:
+      2     print(r1.send_show_command('sh clock'))
+----> 3     raise ValueError('Возникла ошибка')
+      4
+
+ValueError: Возникла ошибка
 """

@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 22.2c
+Задание 22.2c
 
-Copy the CiscoTelnet class from task 22.2b and modify the send_config_commands
-method to check for errors.
+Скопировать класс CiscoTelnet из задания 22.2b и изменить метод send_config_commands
+добавив проверку команд на ошибки.
 
-The send_config_commands method must have an additional strict parameter:
-* strict=True means that when an error is encountered, a ValueError must
-  be raised (default)
-* strict=False means that when an error is found, you only need to print
-  the error message to the stdout
+У метода send_config_commands должен быть дополнительный параметр strict:
+* strict=True значит, что при обнаружении ошибки, необходимо сгенерировать
+  исключение ValueError (значение по умолчанию)
+* strict=False значит, что при обнаружении ошибки, надо только вывести
+  на стандартный поток вывода сообщене об ошибке
 
-The method should return output similar to the send_config_set method of
-netmiko (example output below). The text of the exception and error in
-the example below.
+Метод дожен возвращать вывод аналогичный методу send_config_set
+у netmiko (пример вывода ниже). Текст исключения и ошибки в примере ниже.
 
-An example of creating an instance of a class:
+Пример создания экземпляра класса:
 In [1]: from task_22_2c import CiscoTelnet
 
 In [2]: r1_params = {
@@ -31,12 +30,12 @@ In [4]: commands_with_errors = ['logging 0255.255.1', 'logging', 'a']
 In [5]: correct_commands = ['logging buffered 20010', 'ip http server']
 In [6]: commands = commands_with_errors+correct_commands
 
-Using the send_config_commands method:
+Использование метода send_config_commands:
 
 In [7]: print(r1.send_config_commands(commands, strict=False))
-When executing the command "logging 0255.255.1" on device 192.168.100.1, an error occurred -> Invalid input detected at '^' marker.
-When executing the command "logging" on device 192.168.100.1, an error occurred -> Incomplete command.
-When executing the command "a" on device 192.168.100.1, an error occurred -> Ambiguous command:  "a"
+При выполнении команды "logging 0255.255.1" на устройстве 192.168.100.1 возникла ошибка -> Invalid input detected at '^' marker.
+При выполнении команды "logging" на устройстве 192.168.100.1 возникла ошибка -> Incomplete command.
+При выполнении команды "a" на устройстве 192.168.100.1 возникла ошибка -> Ambiguous command:  "a"
 conf t
 Enter configuration commands, one per line.  End with CNTL/Z.
 R1(config)#logging 0255.255.1
@@ -61,6 +60,6 @@ ValueError                                Traceback (most recent call last)
 
 ...
 
-ValueError: When executing the command "logging 0255.255.1" on device 192.168.100.1, an error occurred -> Invalid input detected at '^' marker.
+ValueError: При выполнении команды "logging 0255.255.1" на устройстве 192.168.100.1 возникла ошибка -> Invalid input detected at '^' marker.
 
 """

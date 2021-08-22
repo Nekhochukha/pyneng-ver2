@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 22.1a
+Задание 22.1a
 
-Copy the Topology class from task 22.1 and modify it.
+Скопировать класс Topology из задания 22.1 и изменить его.
 
-Transfer the functionality of removing "duplicates" to the _normalize method.
-In this case, the __init__ method should look like this:
+Перенести функциональность удаления "дублей" в метод _normalize.
+При этом метод __init__ должен выглядеть таким образом:
 """
 
 

@@ -8,23 +8,23 @@ sys.path.append("..")
 
 from pyneng_common_functions import check_function_exists, unify_topology_dict
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_function_created():
     """
-    Checking that the function has been created
+    Проверка, что функция создана
     """
     check_function_exists(task_17_3b, "transform_topology")
 
 
 def test_function_return_value():
     """
-    Function check
+    Проверка работы функции
     """
     correct_return_value = unify_topology_dict(
         {
@@ -38,15 +38,15 @@ def test_function_return_value():
         }
     )
 
-    assert os.path.exists("topology.yaml"), "topology.yaml file does not exist"
+    assert os.path.exists("topology.yaml"), "Файл topology.yaml не существует"
     return_value = task_17_3b.transform_topology("topology.yaml")
-    assert return_value != None, "The function returns None"
+    assert return_value != None, "Функция ничего не возвращает"
     assert (
         type(return_value) == dict
-    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
+    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
     assert len(correct_return_value) == len(
         return_value
-    ), "There are duplicate links in the dictionary that describes the topology"
+    ), "В словаре, который описывает топологию есть дублирующиеся линки"
     assert correct_return_value == unify_topology_dict(
         return_value
-    ), "Function returns wrong value"
+    ), "Функция возвращает неправильное значение"

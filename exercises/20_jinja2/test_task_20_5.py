@@ -7,20 +7,20 @@ sys.path.append("..")
 
 from pyneng_common_functions import check_function_exists, strip_empty_lines
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_templates_exists():
     assert os.path.exists(
         "templates/gre_ipsec_vpn_1.txt"
-    ), "Template templates/gre_ipsec_vpn_1.txt does not exist"
+    ), "Шаблон templates/gre_ipsec_vpn_1.txt не существует"
     assert os.path.exists(
         "templates/gre_ipsec_vpn_2.txt"
-    ), "Template templates/gre_ipsec_vpn_2.txt does not exist"
+    ), "Шаблон templates/gre_ipsec_vpn_2.txt не существует"
 
 
 def test_function_return_value():
@@ -55,7 +55,7 @@ def test_function_return_value():
 
     assert (
         correct_value_1 in return_cfg1
-    ), "In the final configuration, the Tunnel settings for the first side are incorrect"
+    ), "В итоговой конфигурации неправильно указаны настройки Tunnel для первой стороны"
     assert (
         correct_value_2 in return_cfg2
-    ), "In the final configuration, the Tunnel settings for the second side are incorrect"
+    ), "В итоговой конфигурации неправильно указаны настройки Tunnel для второй стороны"

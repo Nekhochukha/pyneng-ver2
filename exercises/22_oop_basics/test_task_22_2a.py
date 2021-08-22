@@ -11,16 +11,16 @@ from pyneng_common_functions import (
     strip_empty_lines,
 )
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_class_created():
     """
-    Checking that the class has been created
+    Проверка, что класс создан
     """
     check_class_exists(task_22_2a, "CiscoTelnet")
 
@@ -42,7 +42,7 @@ def test_send_show_command_parse_true(
     )
     assert (
         correct_return_value == return_value
-    ), "send_show_command method returns wrong value with parse=True"
+    ), "Метод send_show_command возвращает неправильное значение с parse=True"
 
 
 def test_send_show_command_parse_false(
@@ -58,7 +58,7 @@ def test_send_show_command_parse_false(
     )
     assert strip_empty_lines(correct_return_value) == strip_empty_lines(
         return_value
-    ), "send_show_command method returns wrong value with parse=False"
+    ), "Метод send_show_command возвращает неправильное значение с parse=False"
 
 
 def test_send_show_command_different_command(
@@ -78,7 +78,7 @@ def test_send_show_command_different_command(
     )
     assert (
         correct_return_value == return_value
-    ), "send_show_command method returns wrong value with parse=True"
+    ), "Метод send_show_command возвращает неправильное значение с parse=True"
 
     correct_return_value = r1_test_telnet_connection.send_command(
         "sh version | include IOS", strip_command=False, strip_prompt=False
@@ -88,4 +88,4 @@ def test_send_show_command_different_command(
     )
     assert strip_empty_lines(correct_return_value) == strip_empty_lines(
         return_value
-    ), "send_show_command method returns wrong value with parse=False"
+    ), "Метод send_show_command возвращает неправильное значение с parse=False"

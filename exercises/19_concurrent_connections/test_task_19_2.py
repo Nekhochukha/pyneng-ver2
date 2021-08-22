@@ -12,11 +12,11 @@ from pyneng_common_functions import (
 
 from conftest import create_ssh_connect
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 with open("devices.yaml") as f:
@@ -27,7 +27,7 @@ with open("devices.yaml") as f:
 
 def test_functions_created():
     """
-    Checking that the function has been created
+    Проверка, что функция создана
     """
     check_function_exists(task_19_2, "send_show_command_to_devices")
 
@@ -40,7 +40,7 @@ def test_function_return_value_from_single_device(
     three_routers_from_devices_yaml, r1_r2_r3_test_connection, tmpdir, device, command
 ):
     """
-    Function check
+    Проверка работы функции
     """
     ssh = create_ssh_connect(device)
     correct_output = strip_empty_lines(
@@ -55,12 +55,12 @@ def test_function_return_value_from_single_device(
         filename=dest_filename,
         limit=3,
     )
-    assert None == return_value, "The function must return None"
+    assert None == return_value, "Функция должна возвращать None"
     dest_file_content = strip_empty_lines(dest_filename.read().strip())
 
     assert (
         correct_output == dest_file_content
-    ), f"Output file does not have output from {device['host']}"
+    ), f"В итоговом файле нет вывода с {device['host']}"
 
 
 def test_function_return_value_from_all_devices(
@@ -76,16 +76,17 @@ def test_function_return_value_from_all_devices(
         filename=dest_filename,
         limit=3,
     )
-    assert None == return_value, "The function must return None"
+    assert None == return_value, "Функция должна возвращать None"
 
     dest_file_content = dest_filename.read().strip()
 
+    # проверяем, что вывод с каждого устройства есть в файле
     assert (
         out1.strip() in dest_file_content
-    ), "Output file does not have output from first device"
+    ), "В итоговом файле нет вывода с первого устройства"
     assert (
         out2.strip() in dest_file_content
-    ), "Output file does not have output from second device"
+    ), "В итоговом файле нет вывода со второго устройства"
     assert (
         out3.strip() in dest_file_content
-    ), "Output file does not have output from third device"
+    ), "В итоговом файле нет вывода с третьего устройства"

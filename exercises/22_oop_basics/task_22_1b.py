@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 22.1b
+Задание 22.1b
 
-Copy the Topology class from either task 22.1a or 22.1 and modify it.
+Изменить класс Topology из задания 22.1a или 22.1.
 
-Add a delete_link method that deletes the specified connection.
-The method should also remove the "reverse" connection, if any (an example
-is given below).
+Добавить метод delete_link, который удаляет указанное соединение.
+Метод должен удалять и "обратное" соединение, если оно есть (ниже пример).
 
-If there is no such link, the message "There is no such link" should be printed.
+Если такого соединения нет, выводится сообщение "Такого соединения нет".
 
-Topology creation:
+Создание топологии
 In [7]: t = Topology(topology_example)
 
 In [8]: t.topology
@@ -23,7 +22,7 @@ Out[8]:
  ('R3', 'Eth0/1'): ('R4', 'Eth0/0'),
  ('R3', 'Eth0/2'): ('R5', 'Eth0/0')}
 
-Removing a link:
+Удаление линка:
 In [9]: t.delete_link(('R3', 'Eth0/1'), ('R4', 'Eth0/0'))
 
 In [10]: t.topology
@@ -34,10 +33,9 @@ Out[10]:
  ('R3', 'Eth0/0'): ('SW1', 'Eth0/3'),
  ('R3', 'Eth0/2'): ('R5', 'Eth0/0')}
 
-Deleting the "reverse" link:
-the dictionary contains an entry ('R3', 'Eth0/2'): ('R5', 'Eth0/0'), but calling
-the delete_link method specifying the key and value in reverse order
-('R5', 'Eth0/0'): ('R3', 'Eth0/2') should delete the connection:
+Удаление "обратного" линка:
+в словаре есть запись ``('R3', 'Eth0/2'): ('R5', 'Eth0/0')``, но вызов delete_link
+с указанием ключа и значения в обратном порядке, должно удалять соединение:
 
 In [11]: t.delete_link(('R5', 'Eth0/0'), ('R3', 'Eth0/2'))
 
@@ -48,9 +46,9 @@ Out[12]:
  ('R2', 'Eth0/1'): ('SW2', 'Eth0/11'),
  ('R3', 'Eth0/0'): ('SW1', 'Eth0/3')}
 
-If there is no such connection, the following message is printed:
+Если такого соединения нет, выводится сообщение:
 In [13]: t.delete_link(('R5', 'Eth0/0'), ('R3', 'Eth0/2'))
-There is no such link
+Такого соединения нет
 
 """
 

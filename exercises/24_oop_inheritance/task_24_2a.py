@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 24.2a
+Задание 24.2a
 
-Copy and update the MyNetmiko class from task 24.2.
+Скопировать и дополнить класс MyNetmiko из задания 24.2.
 
-Add the _check_error_in_command method that checks for such errors:
-Invalid input detected, Incomplete command, Ambiguous command
+Добавить метод _check_error_in_command, который выполняет проверку на такие ошибки:
+ * Invalid input detected, Incomplete command, Ambiguous command
 
-The method expects a command and command output as an argument. If no error
-is found in the output, the method returns nothing. If an error is found
-in the output, the method should raise an ErrorInCommand exception with a message
-about which error was detected, on which device, and in which command.
+Метод ожидает как аргумент команду и вывод команды.
+Если в выводе не обнаружена ошибка, метод ничего не возвращает.
+Если в выводе найдена ошибка, метод должен генерировать исключение ErrorInCommand
+с сообщением о том какая ошибка была обнаружена, на каком устройстве и в какой команде.
 
-An ErrorInCommand exception is created in the task file.
+Исключение ErrorInCommand создано в файле задания.
 
-Rewrite send_command method to include error checking.
+Переписать метод send_command netmiko, добавив в него проверку на ошибки.
 
 In [2]: from task_24_2a import MyNetmiko
 
@@ -30,13 +30,13 @@ ErrorInCommand                            Traceback (most recent call last)
 <ipython-input-2-1c60b31812fd> in <module>()
 ----> 1 r1.send_command('sh ip br')
 ...
-ErrorInCommand: When executing the command "sh ip br" on device 192.168.100.1, an error occurred "Invalid input detected at '^' marker."
+ErrorInCommand: При выполнении команды "sh ip br" на устройстве 192.168.100.1 возникла ошибка "Invalid input detected at '^' marker."
 
 """
 
 
 class ErrorInCommand(Exception):
     """
-    An exception is raised if an error occurs while executing
-    a command on the device.
+    Исключение генерируется, если при выполнении команды на оборудовании,
+    возникла ошибка.
     """

@@ -11,23 +11,23 @@ from pyneng_common_functions import (
     unify_topology_dict,
 )
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_function_created():
     """
-    Checking that the function has been created
+    Проверка, что функция создана
     """
     check_function_exists(task_11_2, "create_network_map")
 
 
 def test_function_params():
     """
-    Checking names and number of parameters
+    Проверка имен и количества параметров
     """
     check_function_params(
         function=task_11_2.create_network_map, param_count=1, param_names=["filenames"]
@@ -36,7 +36,7 @@ def test_function_params():
 
 def test_function_return_value():
     """
-    Function check
+    Проверка работы функции
     """
     correct_return_value = {
         ("R1", "Eth0/0"): ("SW1", "Eth0/1"),
@@ -54,8 +54,10 @@ def test_function_return_value():
     return_value = task_11_2.create_network_map(
         ["sh_cdp_n_r2.txt", "sh_cdp_n_r1.txt", "sh_cdp_n_sw1.txt", "sh_cdp_n_r3.txt"]
     )
-    assert return_value != None, "The function returns None"
+    assert return_value != None, "Функция ничего не возвращает"
     assert (
         type(return_value) == dict
-    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
-    assert correct_return_value == return_value, "Function returns wrong value"
+    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    assert (
+        correct_return_value == return_value
+    ), "Функция возвращает неправильное значение"

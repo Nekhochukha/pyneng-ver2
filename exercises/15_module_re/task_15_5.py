@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Task 15.5
+Задание 15.5
 
-Create a generate_description_from_cdp function that expects as an argument
-the name of the file that contains the output of the show cdp neighbors command.
+Создать функцию generate_description_from_cdp, которая ожидает как аргумент
+имя файла, в котором находится вывод команды show cdp neighbors.
 
-The function should process the show cdp neighbors command output and generate
-a description for the interfaces based on the command output.
+Функция должна обрабатывать вывод команды show cdp neighbors и генерировать
+на основании вывода команды описание для интерфейсов.
 
-For example, if R1 has the following command output:
+Например, если у R1 такой вывод команды:
 R1>show cdp neighbors
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater
@@ -16,13 +16,13 @@ Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
 Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
 SW1              Eth 0/0           140          S I      WS-C3750-  Eth 0/1
 
-For the Eth 0/0 interface, you need to generate the following description:
+Для интерфейса Eth 0/0 надо сгенерировать такое описание
 description Connected to SW1 port Eth 0/1
 
-The function must return a dictionary, in which the keys are the names
-of the interfaces, and the values are the command specifying the description
-of the interface:
+Функция должна возвращать словарь, в котором ключи - имена интерфейсов,
+а значения - команда задающая описание интерфейса:
 'Eth 0/0': 'description Connected to SW1 port Eth 0/1'
 
-Check the operation of the function on the sh_cdp_n_sw1.txt file.
+
+Проверить работу функции на файле sh_cdp_n_sw1.txt.
 """

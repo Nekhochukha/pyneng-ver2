@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 """
-Task 20.1
+Задание 20.1
 
-Create generate_config function.
+Создать функцию generate_config.
 
-Function parameters:
-* template - path to the template file (for example, "templates/for.txt")
-* data_dict - a dictionary with values to be substituted into the template
+Параметры функции:
+* template - путь к файлу с шаблоном (например, "templates/for.txt")
+* data_dict - словарь со значениями, которые надо подставить в шаблон
 
-The function should return the generated configuration string.
+Функция должна возвращать строку с конфигурацией, которая была сгенерирована.
 
-Check the operation of the function on the templates/for.txt template
-and data from the data_files/for.yml file.
+Проверить работу функции на шаблоне templates/for.txt
+и данных из файла data_files/for.yml.
 
 """
 import yaml
 
 
-# this is how a function call should look
+# так должен выглядеть вызов функции
 if __name__ == "__main__":
     data_file = "data_files/for.yml"
     template_file = "templates/for.txt"

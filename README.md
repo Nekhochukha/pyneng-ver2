@@ -1,41 +1,33 @@
-## Examples and exercises from the book "Python for Network Engineers"
+# Задания и примеры из книги "Python для сетевых инженеров"
 
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/) [![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/) [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-All examples and exercises have been tested in Python 3.7 and 3.8.
+Все примеры и задания были проверены на Python 3.7 и 3.8.
 
-> The assignments will be useful even if you are reading another Python book.
-> All tasks are focused on network topics.
+## Как создать свой репозиторий для выполнения заданий
 
-## Links
+> [Подробнее о работе с Git и Github в книге](https://pyneng.readthedocs.io/ru/latest/book/02_git_github/index.html)
 
-* [Working environment](https://pyneng.readthedocs.io/en/latest/book/01_intro/work_env.html)
-* [Testing tasks with the pyneng utility](https://pyneng.readthedocs.io/en/latest/book/additional_info/pyneng.html)
+### Создание репозитория на GitHub
 
-## How to create your own repository for tasks
+Для создания своего репозитория на основе шаблона нужно:
 
-> [Git/Github basics](https://pyneng.readthedocs.io/en/latest/book/02_git_github/index.html)
-
-### Creating a repository on GitHub
-
-To create your own repository based on a template, you need:
-
--  open [tasks repo](https://github.com/natenka/pyneng-examples-exercises-en)
--  above the file list, click Use this template
--  type a name for your repository
--  click Create repository from template
--  now you have a new repository with the same directory structure and files as pyneng-examples-exercises-en
+-  залогиниться на [GitHub](https://github.com/)
+-  открыть [репозиторий с заданиями](https://github.com/natenka/pyneng-examples-exercises)
+-  нажать "Use this template" и создать новый репозиторий на основе этого шаблона
+-  в открывшемся окне надо ввести название репозитория
+-  после этого готов новый репозиторий с копией всех файлов из исходного репозитория с заданиями
 
 ![](https://raw.githubusercontent.com/natenka/PyNEng/master/images/git/github_use_template.png)
 
-### Clone repository
+### Клонирование репозитория с GitHub
 
-To work locally with the repository, you need to clone it.
-To do this, use the git clone command:
+Для локальной работы с репозиторием его нужно клонировать.
+Для этого используется команда git clone:
 
 ```
-$ git clone git@github.com:natenka/my_tasks.git
-Cloning into 'my_tasks'...
+$ git clone git@github.com:natenka/pyneng-examples-exercises.git
+Cloning into 'pyneng-examples-exercises'...
 remote: Counting objects: 241, done.
 remote: Compressing objects: 100% (191/191), done.
 remote: Total 241 (delta 43), reused 239 (delta 41), pack-reused 0
@@ -44,25 +36,40 @@ Resolving deltas: 100% (43/43), done.
 Checking connectivity... done.
 ```
 
-In the command output above, you need to change:
+По сравнению с приведённой в этом листинге командой, вам нужно изменить:
 
-- username natenka to your username on GitHub
-- repository name my_tasks to the name of your repository
+-  имя пользователя natenka на имя своего пользователя на GitHub;
+-  имя репозитория pyneng-examples-exercises на имя своего
+   репозитория на GitHub.
 
-As a result, in the current directory where the git clone command was executed,
-a directory with the name of the repository will appear, in my case -
-"my_tasks". This directory now contains local copy of the repository with tasks.
+В итоге, в текущем каталоге, в котором была выполнена команда git clone,
+появится каталог с именем репозитория, в моём случае –
+"pyneng-examples-exercises". В этом каталоге теперь находится
+содержимое репозитория на GitHub.
 
-## Tasks (exercises)
+## Виртуалки
 
-The exercises directory contains tasks with numbers corresponding to the sections of the book.
-In addition, there are all additional files (configurations, etc.) that are used in tasks.
+Для курса подготовлены два варианта виртуальных машин: vmware и Vagrant.
+По ссылке есть инструкции для каждого варианта, а также инструкция по выполнению заданий на Windows:
 
-## Tests
+* https://pyneng.github.io/docs/course-vm/
 
-Starting from section “4. Data types in Python ”there are automated tests for testing tasks.
-They help to check whether everything matches the task, and also give feedback on what does not correspond to the task.
-As a rule, after the first period of adaptation to tests, it becomes easier to do tasks with tests. Testing is done using the pyneng utility.
 
-[Learn more about how to work with the pyneng utility](https://pyneng.readthedocs.io/en/latest/book/additional_info/pyneng.html).
+## Задания
+
+В каталоге exercises находятся задания к курсу, отсортированные по разделам курса.
+Кроме того, там находятся все вспомогательные файлы (конфигурации и др), которые используются в заданиях.
+
+> Если в заданиях раздела есть задания с буквами (например, 5.2a), то можно выполнить сначала задания без букв, а затем с буквами. Задания с буквами, как правило, немного сложнее заданий без букв и развивают/усложняют идею в соответствующем задании без буквы.
+> Например, если в разделе есть задания: 5.1, 5.2, 5.2a, 5.2b, 5.3, 5.3a.
+> Сначала, можно выполнить задания 5.1, 5.2, 5.3. А затем 5.2a, 5.2b, 5.3a.
+> Однако, если задания с буквами получается сделать сразу, можно делать их по порядку.
+
+## Тесты
+
+Начиная с раздела «9. Функции» для проверки заданий есть автоматические тесты. 
+Они помогают проверить все ли соответствует поставленной задаче, а также дают обратный отклик по тому, 
+что не соответствует задаче. Как правило, после первого периода адаптации к тестам, становится проще делать задания с тестами.
+
+* [Как работать с тестами и основы pytest](https://pyneng.readthedocs.io/ru/latest/book/additional_info/pytest.html)
 

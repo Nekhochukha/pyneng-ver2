@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
 """
-Task 24.2c
+Задание 24.2c
 
-Copy the class MyNetmiko from task 24.2b.
-Check that the send_command method, in addition to a command,
-also accepts additional arguments, for example, strip_command.
+Скопировать класс MyNetmiko из задания 24.2b.
+Проверить, что метод send_command кроме команду, принимает еще и дополнительные
+аргументы, например, strip_command.
 
-If an error occurs, rewrite the method to accept any arguments that netmiko supports.
+Если возникает ошибка, переделать метод таким образом, чтобы он принимал
+любые аргументы, которые поддерживает netmiko.
+
 
 In [2]: from task_24_2c import MyNetmiko
 

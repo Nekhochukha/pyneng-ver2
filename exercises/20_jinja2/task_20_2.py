@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-Task 20.2
+Задание 20.2
 
-Create template templates/cisco_router_base.txt.
+Создать шаблон templates/cisco_router_base.txt.
 
-The templates/cisco_router_base.txt template should include the content of the templates:
+В шаблон templates/cisco_router_base.txt должно быть включено содержимое шаблонов:
 * templates/cisco_base.txt
 * templates/alias.txt
 * templates/eem_int_desc.txt
 
-Template text cannot be copied.
+При этом, нельзя копировать текст шаблонов.
 
-Test the template templates/cisco_router_base.txt using the generate_config
-function from task 20.1. Do not copy the code of the generate_config function.
+Проверьте шаблон templates/cisco_router_base.txt, с помощью
+функции generate_config из задания 20.1. Не копируйте код функции generate_config.
 
-As data, use the information from the data_files/router_info.yml file.
+В качестве данных, используйте информацию из файла data_files/router_info.yml
 
 """

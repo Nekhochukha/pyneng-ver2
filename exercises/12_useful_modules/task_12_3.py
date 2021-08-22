@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Task 12.3
+Задание 12.3
 
-Create a function print_ip_table that prints a table of available
-and unavailable IP addresses.
+Создать функцию print_ip_table, которая отображает таблицу доступных
+и недоступных IP-адресов.
 
-The function expects two lists as arguments:
-* list of available IP addresses
-* list of unavailable IP addresses
+Функция ожидает как аргументы два списка:
+* список доступных IP-адресов
+* список недоступных IP-адресов
 
-The result of the function is printing a table to the stdout:
+Результат работы функции - вывод на стандартный поток вывода таблицы вида:
 
 Reachable    Unreachable
 -----------  -------------

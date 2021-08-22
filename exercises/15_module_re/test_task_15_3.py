@@ -6,23 +6,23 @@ sys.path.append("..")
 
 from pyneng_common_functions import check_function_exists
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_function_created():
     """
-    Checking that the function has been created
+    Проверка, что функция создана
     """
     check_function_exists(task_15_3, "convert_ios_nat_to_asa")
 
 
 def test_function_return_value(tmpdir):
     """
-    Function check
+    Проверка работы функции
     """
     correct_asa_nat_config = (
         "object network LOCAL_10.66.0.13\n"
@@ -73,7 +73,7 @@ def test_function_return_value(tmpdir):
         "cisco_nat_config.txt", dest_filename
     )
     file_content = dest_filename.read().strip()
-    assert return_value == None, "The function must return None"
+    assert return_value == None, "Функция должна возвращать None"
     assert (
         correct_asa_nat_config.strip() == file_content
-    ), "Incorrect configuration for ASA"
+    ), "Неправильная конфигурация для ASA"

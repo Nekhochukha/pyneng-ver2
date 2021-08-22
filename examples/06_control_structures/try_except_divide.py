@@ -1,26 +1,26 @@
-# try/except version
+# Вариант с try/except
 while True:
-    a = input("Enter number: ")
-    b = input("Enter second number: ")
+    a = input("Введите число: ")
+    b = input("Введите второе число: ")
     try:
         result = int(a) / int(b)
     except ValueError:
-        print("Please enter only numbers")
+        print("Поддерживаются только числа")
     except ZeroDivisionError:
-        print("You can't divide by zero")
+        print("На ноль делить нельзя")
     else:
         print(result)
         break
 
-# Without try/except
+# Аналогичное решение без try/except
 while True:
-    a = input("Enter number: ")
-    b = input("Enter second number: ")
+    a = input("Введите число: ")
+    b = input("Введите второе число: ")
     if a.isdigit() and b.isdigit():
         if int(b) == 0:
-            print("You can't divide by zero")
+            print("На ноль делить нельзя")
         else:
             print(int(a) / int(b))
             break
     else:
-        print("Please enter only numbers")
+        print("Поддерживаются только числа")

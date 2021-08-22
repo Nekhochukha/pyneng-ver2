@@ -1,12 +1,12 @@
 def check_passwd(username, password):
     if len(password) < 8:
-        print('Password is too short')
+        print('Пароль слишком короткий')
         return False
     elif username in password:
-        print('Password contains username')
+        print('Пароль содержит имя пользователя')
         return False
     else:
-        print(f'Password for user {username} passed all checks')
+        print(f'Пароль для пользователя {username} прошел все проверки')
         return True
 
 

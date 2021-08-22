@@ -11,23 +11,23 @@ from pyneng_common_functions import (
     unify_topology_dict,
 )
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_function_created():
     """
-    Checking that the function has been created
+    Проверка, что функция создана
     """
     check_function_exists(task_11_2a, "unique_network_map")
 
 
 def test_function_params():
     """
-    Checking names and number of parameters
+    Проверка имен и количества параметров
     """
     check_function_params(
         function=task_11_2a.unique_network_map,
@@ -38,7 +38,7 @@ def test_function_params():
 
 def test_function_return_value():
     """
-    Function check
+    Проверка работы функции
     """
     input_value = {
         ("R1", "Eth0/0"): ("SW1", "Eth0/1"),
@@ -63,18 +63,23 @@ def test_function_return_value():
     }
 
     return_value = task_11_2a.unique_network_map(input_value)
-    assert return_value != None, "The function returns None"
+    assert return_value != None, "Функция ничего не возвращает"
     assert (
         type(return_value) == dict
-    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
+    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
     assert len(correct_return_value) == len(
         return_value
-    ), "There are duplicate links in the dictionary that describes the topology"
+    ), "В словаре, который описывает топологию есть дублирующиеся линки"
     unified_return_value = unify_topology_dict(return_value)
-    assert correct_return_value == unified_return_value, "Function returns wrong value"
+    assert (
+        correct_return_value == unified_return_value
+    ), "Функция возвращает неправильное значение"
 
 
 def test_function_return_value_different_args():
+    """
+    Проверка работы функции на другом выводе
+    """
     input_value = {
         ("R3", "Eth0/1"): ("R4", "Eth0/0"),
         ("R3", "Eth0/2"): ("R5", "Eth0/0"),
@@ -89,12 +94,14 @@ def test_function_return_value_different_args():
     }
 
     return_value = task_11_2a.unique_network_map(input_value)
-    assert return_value != None, "The function returns None"
+    assert return_value != None, "Функция ничего не возвращает"
     assert (
         type(return_value) == dict
-    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
+    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
     assert len(correct_return_value) == len(
         return_value
-    ), "There are duplicate links in the dictionary that describes the topology"
+    ), "В словаре, который описывает топологию есть дублирующиеся линки"
     unified_return_value = unify_topology_dict(return_value)
-    assert correct_return_value == unified_return_value, "Function returns wrong value"
+    assert (
+        correct_return_value == unified_return_value
+    ), "Функция возвращает неправильное значение"

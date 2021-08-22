@@ -6,16 +6,16 @@ sys.path.append("..")
 
 from pyneng_common_functions import check_function_exists, read_all_csv_content_as_list
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_functions_created():
     """
-    Checking that the functions has been created
+    Проверка, что функции созданы
     """
     check_function_exists(task_17_2, "parse_sh_version")
     check_function_exists(task_17_2, "write_inventory_to_csv")
@@ -23,7 +23,7 @@ def test_functions_created():
 
 def test_parse_sh_version_return_value():
     """
-    Function check
+    Проверка работы функции
     """
     with open("sh_version_r1.txt") as f:
         sh_version_r1 = f.read()
@@ -42,22 +42,23 @@ def test_parse_sh_version_return_value():
     )
 
     return_value_r1 = task_17_2.parse_sh_version(sh_version_r1)
-    assert return_value_r1 != None, "The function returns None"
+    assert return_value_r1 != None, "Функция ничего не возвращает"
     assert (
         type(return_value_r1) == tuple
-    ), f"The function should return a tuple, instead it returns a {type(return_value_r1).__name__}"
+    ), f"По заданию функция должна возвращать кортеж, а возвращает {type(return_value_r1).__name__}"
     assert (
         correct_return_value_r1 == return_value_r1
-    ), "Function returns wrong value for r1"
+    ), "Функция возвращает неправильное значение для вывода r1"
+
     return_value_r2 = task_17_2.parse_sh_version(sh_version_r2)
     assert (
         correct_return_value_r2 == return_value_r2
-    ), "Function returns wrong value for r2"
+    ), "Функция возвращает неправильное значение для вывода r2"
 
 
 def test_write_to_csv_return_value(tmpdir):
     """
-    Function check
+    Проверка работы функции
     """
     correct_return_value = sorted(
         [
@@ -89,5 +90,7 @@ def test_write_to_csv_return_value(tmpdir):
 
     assert (
         None == return_value
-    ), f"The function must return None, and it returns a {type(return_value).__name__}"
-    assert correct_return_value == sorted(csv_content), "Function returns wrong value"
+    ), f"По заданию функция должна возвращать None, а возвращает {type(return_value).__name__}"
+    assert correct_return_value == sorted(
+        csv_content
+    ), "Функция возвращает неправильное значение"

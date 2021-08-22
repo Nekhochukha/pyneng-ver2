@@ -1,33 +1,33 @@
 # -*- coding: utf-8 -*-
 
 try:
-    a = input("Enter first number: ")
-    b = input("Enter second number: ")
+    a = input('Введите первое число: ')
+    b = input('Введите второе число: ')
     result = int(a) / int(b)
 except (ValueError, ZeroDivisionError):
-    print("Something went wrong...")
+    print('Что-то пошло не так...')
 else:
-    print("Result squared: ", result ** 2)
+    print('Результат в квадрате: ', result**2)
 finally:
-    print("The End")
-"""
+    print('Вот и сказочке конец, а кто слушал - молодец.')
+'''
 Example:
 
 $ python divide_ver4.py
-Enter first number: 10
-Enter second number: 2
-Result squared:  25
-The End
+Введите первое число: 10
+Введите второе число: 2
+Результат в квадрате:  25
+Вот и сказочке конец, а кто слушал - молодец.
 
 $ python divide_ver4.py
-Enter first number: qwerewr
-Enter second number: 3
-Something went wrong...
-The End
+Введите первое число: qwerewr
+Введите второе число: 3
+Что-то пошло не так...
+Вот и сказочке конец, а кто слушал - молодец.
 
 $ python divide_ver4.py
-Enter first number: 4
-Enter second number: 0
-Something went wrong...
-The End
-"""
+Введите первое число: 4
+Введите второе число: 0
+Что-то пошло не так...
+Вот и сказочке конец, а кто слушал - молодец.
+'''

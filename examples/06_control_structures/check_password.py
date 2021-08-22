@@ -1,35 +1,35 @@
 # -*- coding: utf-8 -*-
 
-username = input("Enter username: ")
-password = input("Enter password: ")
+username = input('Введите имя пользователя: ')
+password = input('Введите пароль: ')
 
 if len(password) < 8:
-    print("Password is too short")
+    print('Пароль слишком короткий')
 elif username in password:
-    print("Password contains username")
+    print('Пароль содержит имя пользователя')
 else:
-    print("Password for user {} is set".format(username))
+    print('Пароль для пользователя {} установлен'.format(username))
 
-"""
+'''
 Usage example:
 
 $ python check_password.py
-Enter username: nata
-Enter password: nata1234
-Password contains username
+Введите имя пользователя: nata
+Введите пароль: nata1234
+Пароль содержит имя пользователя
 
 $ python check_password.py
-Enter username: nata
-Enter password: 123nata123
-Password contains username
+Введите имя пользователя: nata
+Введите пароль: 123nata123
+Пароль содержит имя пользователя
 
 $ python check_password.py
-Enter username: nata
-Enter password: 1234
-Password is too short
+Введите имя пользователя: nata
+Введите пароль: 1234
+Пароль слишком короткий
 
 $ python check_password.py
-Enter username: nata
-Enter password: 123456789
-Password for user nata is set
-"""
+Введите имя пользователя: nata
+Введите пароль: 123456789
+Пароль для пользователя nata установлен
+'''

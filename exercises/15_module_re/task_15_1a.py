@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-Task 15.1a
+Задание 15.1a
 
-Copy the get_ip_from_cfg function from task 15.1 and redesign it so
-that it returns a dictionary:
-* key: interface name
-* value: a tuple with two lines:
-   * IP address
-   * mask
+Скопировать функцию get_ip_from_cfg из задания 15.1 и переделать ее таким образом,
+чтобы она возвращала словарь:
+* ключ: имя интерфейса
+* значение: кортеж с двумя строками:
+  * IP-адрес
+  * маска
 
-Add to the dictionary only those interfaces on which IP addresses are configured.
+В словарь добавлять только те интерфейсы, на которых настроены IP-адреса.
 
-For example (arbitrary addresses are taken):
+Например (взяты произвольные адреса):
 {'FastEthernet0/1': ('10.0.1.1', '255.255.255.0'),
  'FastEthernet0/2': ('10.0.2.1', '255.255.255.0')}
 
-To get this result, use regular expressions.
+Для получения такого результата, используйте регулярные выражения.
 
-Check the operation of the function using the example of the config_r1.txt file.
+Проверить работу функции на примере файла config_r1.txt.
 
-Please note that in this case, you can not check the correctness
-of the IP address, address ranges, and so on, since the command
-output from network device is processed, not user input.
+Обратите внимание, что в данном случае, можно не проверять корректность IP-адреса,
+диапазоны адресов и так далее, так как обрабатывается вывод команды,
+а не ввод пользователя.
 
 """

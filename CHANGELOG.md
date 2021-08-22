@@ -1,15 +1,57 @@
-# Updated tasks and tests. (July 13 2021)
+# Обновление заданий и тестов. (13.07.2021)
 
-Changes in tests and tasks:
+Изменения в тестах и заданиях:
 
-* All tests have been changed so that to the left of == assert is the correct version of the output, and to the right is the output from the task.
-  Thus, pytest-clarity shows in green the correct option, in red what is received from the task
-* Updated pyneng utility and pytest.ini config files - removed pytest option due to pytest-clarity update
-* updated tasks, most of them small changes, clarification of the wording
-* removed task: 15.2a
-* Updated pyneng_common_functions.py file in exercises directory
+* Все тесты изменены таким образом чтобы слева от == assert был правильный вариант вывода, а справа вывод из задания.
+  Таким образом pytest-clarity показывает зеленым правильный вариант, красным то что получено из задания 
+* Обновлена утилита pyneng и файлы конфигурации pytest.ini - из-за обновления pytest-clarity удалена опция pytest
+* обновлены задания, большинство по мелочам, уточнение формулировки, приведение к одному формату
+* удалено задание: 15.2a
+* Обновлен файл pyneng_common_functions.py в каталоге exercises
 
+После обновления заданий, тестов и файла pyneng_common_functions.py, надо обновить модуль pytest-clarity:
 
-[More about the changes](https://github.com/natenka/pyneng-examples-exercises-en/blob/main/CHANGELOG/2021_07_13.md)
+```
+pip install -U pytest-clarity
+```
+
+[Подробнее об изменениях](https://natenka.github.io/pyneng/pyneng-tasks-update-2021-2/)
+
+# Обновление заданий и добавление тестов для всех заданий, кроме раздела 25. (26.01.2021)
+
+Изменения в тестах и заданиях:
+
+* добавлены тесты для разделов 4-7 и для всех заданий, кроме раздела 25 (базы данных)
+* для проверки заданий тестами сделана новая утилита pyneng
+* обновлены задания, большинство по мелочам, уточнение формулировки, приведение к одному формату
+* удалены несколько заданий: 5.2b, 7.2c
+* задание 11.2 разбито на два 11.2 и 11.2a
+* изменены задания 18.3 и 19.4
+* Файл common_functions.py в каталоге exercises переименован в pyneng_common_functions.py, чтобы не было путанницы с модулем common_functions в PyPi. Если у вас есть и обновленные заданий ии старые, оставляйте оба файла в каталоге exercises
+
+Плюс добавлена новая утилита для проверки заданий.
+
+[Подробнее об изменениях](https://natenka.github.io/pyneng/pyneng-tasks-update-2021/)
+
+# Ответы перенесены в отдельный репозиторий (6.01.2021)
+
+# Опубликованы ответы на задания (29.10.2020)
+
+#  Изменение порядка разделов в книге (14.09.2020)
+
+1. Раздел Базы данных (18_db) перенесен в конец книги. Теперь это раздел под номером 25. Перенос связан с тем, что тема может быть сильно сложной на этом этапе изучения, плюс задания в этом разделе сложнее. Перенос темы в конец оказался очень успешным на курсе, меньше слушателей забрасывали учебу в этом месте.
+2. Разделы 23, 24 по Ansible удалены, во-первых, потому что это не совсем Python, во-вторых, потому что эти разделы теперь находятся [в отдельной книге по Ansible](https://ansible-for-network-engineers.readthedocs.io/)
+3. Соответственно сдвинута нумерация всех остальных разделов.
+4. Разделы 1-17 не менялись.
+
+Для более плавного перехода создана копия предыдущего варианта книги. Этот вариант будет доступен до конца года.
+Попасть в него можно [по ссылке](https://pyneng.readthedocs.io/ru/old_chapter_order/) или нажав в левом нижнем углу книги на “Read the Docs” и нажать на версию old_chapter_order (как на скриншоте).
+
+![alt](https://natenka.github.io/assets/images/update.png)
+
+Соответственно изменен порядок разделов в этом репозитории.
+Старый порядок сохранен в ветке [old_chapter_order](https://github.com/natenka/pyneng-examples-exercises/tree/old_chapter_order).
+
+Все новые правки будут идти только в обновленную версию, так что лучше, по возможности, переходить на новую.
 
 

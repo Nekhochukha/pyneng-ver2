@@ -12,16 +12,16 @@ from pyneng_common_functions import (
     get_func_params_default_value,
 )
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_function_created():
     """
-    Checking that the function has been created
+    Проверка, что функция создана
     """
     check_function_exists(task_17_3a, "generate_topology_from_cdp")
 
@@ -37,12 +37,12 @@ def test_function_params():
     )
     assert (
         default_values.get("save_to_filename") == None
-    ), "The save_to_filename parameter should have a default value of None"
+    ), "У параметра save_to_filename значение по умолчанию должно быть None"
 
 
 def test_function_return_value():
     """
-    Function check
+    Проверка работы функции
     """
     list_of_cdp_files = [
         "sh_cdp_n_r2.txt",
@@ -73,11 +73,13 @@ def test_function_return_value():
     }
 
     return_value = task_17_3a.generate_topology_from_cdp(list_of_cdp_files)
-    assert return_value != None, "The function returns None"
+    assert return_value != None, "Функция ничего не возвращает"
     assert (
         type(return_value) == dict
-    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
-    assert correct_return_value == return_value, "Function returns wrong value"
+    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    assert (
+        correct_return_value == return_value
+    ), "Функция возвращает неправильное значение"
 
 
 def test_writing_to_yaml_file(tmpdir):
@@ -112,9 +114,9 @@ def test_writing_to_yaml_file(tmpdir):
     return_value = task_17_3a.generate_topology_from_cdp(
         list_of_cdp_files, save_to_filename=dest_filename
     )
-    assert os.path.exists(dest_filename), "YAML file not created"
+    assert os.path.exists(dest_filename), "YAML файл не создан"
     with open(dest_filename) as f:
         yaml_file_content = yaml.safe_load(f)
     assert (
         correct_return_value == yaml_file_content
-    ), "Topology is not written to YAML file"
+    ), "Топология не записана в YAML файл"

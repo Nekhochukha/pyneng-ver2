@@ -11,16 +11,16 @@ from pyneng_common_functions import (
     strip_empty_lines,
 )
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_class_created():
     """
-    Checking that the class has been created
+    Проверка, что класс создан
     """
     check_class_exists(task_22_2b, "CiscoTelnet")
 
@@ -33,7 +33,7 @@ def test_send_config_commands_list(first_router_from_devices_yaml):
     return_value = r1.send_config_commands(cfg_comands)
     assert (
         cfg_comands[0] in return_value and cfg_comands[1] in return_value
-    ), "send_config_commands method returns wrong value"
+    ), "Метод send_config_commands возвращает неправильное значение"
 
 
 def test_send_config_command_str(first_router_from_devices_yaml):
@@ -42,7 +42,9 @@ def test_send_config_command_str(first_router_from_devices_yaml):
 
     cfg_comand = "logging 10.1.1.1"
     return_value = r1.send_config_commands(cfg_comand)
-    assert cfg_comand in return_value, "send_config_commands method returns wrong value"
+    assert (
+        cfg_comand in return_value
+    ), "Метод send_config_commands возвращает неправильное значение"
 
 
 def test_send_config_commands_different_command(first_router_from_devices_yaml):
@@ -51,7 +53,9 @@ def test_send_config_commands_different_command(first_router_from_devices_yaml):
 
     cfg_comand = "no ip http server"
     return_value = r1.send_config_commands(cfg_comand)
-    assert cfg_comand in return_value, "send_config_commands method returns wrong value"
+    assert (
+        cfg_comand in return_value
+    ), "Метод send_config_commands возвращает неправильное значение"
 
     cfg_comands = [
         "alias configure sh do sh",
@@ -60,4 +64,4 @@ def test_send_config_commands_different_command(first_router_from_devices_yaml):
     return_value = r1.send_config_commands(cfg_comands)
     assert (
         cfg_comands[0] in return_value and cfg_comands[1] in return_value
-    ), "send_config_commands method returns wrong value"
+    ), "Метод send_config_commands возвращает неправильное значение"

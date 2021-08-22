@@ -1,41 +1,40 @@
 # -*- coding: utf-8 -*-
 """
-Task 25.5
+Задание 25.5
 
-There are no tests for the tasks of the 25th chapter!
+Для заданий 25 раздела нет тестов!
 
-After completing tasks 25.1 - 25.5, information about inactive records remains
-in the database. And, if some MAC address did not appear in new records,
-the record with it may remain in the database forever.
+После выполнения заданий 25.1 - 25.5 в БД остается информация о неактивных записях.
+И, если какой-то MAC-адрес не появлялся в новых записях, запись с ним,
+может остаться в БД навсегда.
 
-And while it can be useful to see where the MAC address was last located,
-it is not very useful to keep this information permanently. Instead, you can
-delete a record if, for example, it has been stored in the database for more
-than a month.
+И, хотя это может быть полезно, чтобы посмотреть, где MAC-адрес находился
+в последний раз, постоянно хранить эту информацию не очень полезно.
 
+Например, если запись в БД уже больше месяца, то её можно удалить.
 
-In order to be able to delete records by date, you need to enter a new field
-in which the last time the record was added will be recorded.
+Для того, чтобы сделать такой критерий, нужно ввести новое поле,
+в которое будет записываться последнее время добавления записи.
 
-The new field is called last_active and must contain a string in the format:
-YYYY-MM-DD HH:MM:SS.
+Новое поле называется last_active и в нем должна находиться строка,
+в формате: YYYY-MM-DD HH:MM:SS.
 
-In this task you need to:
-* change the dhcp table accordingly and add a new field. The table can be
-  changed from cli sqlite, but the dhcp_snooping_schema.sql file must also be changed
-* modify the add_data.py script to add time to each entry
+В этом задании необходимо:
+* изменить, соответственно, таблицу dhcp и добавить новое поле.
+ * таблицу можно поменять из cli sqlite, но файл dhcp_snooping_schema.sql тоже необходимо изменить
+* изменить скрипт add_data.py, чтобы он добавлял к каждой записи время
 
-You can get a string with time and date in the specified format using
-the datetime function in an SQL query. The syntax is as follows:
-
+Получить строку со временем и датой, в указанном формате,
+можно с помощью функции datetime в запросе SQL.
+Синтаксис использования такой:
 sqlite> insert into dhcp (mac, ip, vlan, interface, switch, active, last_active)
    ...> values ('00:09:BC:3F:A6:50', '192.168.100.100', '1', 'FastEthernet0/7', 'sw1', '0', datetime('now'));
 
-That is, instead of the value that is written to the database, you must
-specify datetime('now').
+То есть вместо значения, которое записывается в базу данных,
+надо указать datetime('now').
 
-After this command, the following entry will appear in the database:
+После этой команды в базе данных появится такая запись:
 mac                ip               vlan  interface        switch  active  last_active
 -----------------  ---------------  ----  ---------------  ------  ------  -------------------
-00:09:BC:3F:A6:50  192.168.100.100  1     FastEthernet0/7  sw1     0       2021-03-09 07:46:31
+00:09:BC:3F:A6:50  192.168.100.100  1     FastEthernet0/7  sw1     0       2019-03-08 11:26:56
 """

@@ -6,23 +6,23 @@ sys.path.append("..")
 
 from pyneng_common_functions import check_function_exists
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_function_created():
     """
-    Checking that the function has been created
+    Проверка, что функция создана
     """
     check_function_exists(task_15_2, "parse_sh_ip_int_br")
 
 
 def test_function_return_value():
     """
-    Function check
+    Проверка работы функции
     """
     correct_return_value = [
         ("FastEthernet0/0", "15.0.15.1", "up", "up"),
@@ -34,21 +34,20 @@ def test_function_return_value():
     ]
 
     return_value = task_15_2.parse_sh_ip_int_br("sh_ip_int_br.txt")
-    assert return_value != None, "The function returns None"
+    assert return_value != None, "Функция ничего не возвращает"
     assert (
         type(return_value) == list
-    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
-    # The lists are sorted so that there is no error if the addresses are written
-    # in the list in a different order. In this task, the order of the tuples
-    # in the list is not important.
+    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    # Списки сортируются чтобы не было ошибки, если строки записаны в списке в другом порядке
+    # В этом задании порядок кортежей в списке не важен
     assert sorted(correct_return_value) == sorted(
         return_value
-    ), "Function returns wrong value"
+    ), "Функция возвращает неправильное значение"
 
 
 def test_function_return_value_different_args():
     """
-    Checking the function with different arguments
+    Проверка работы функции с другими аргументами
     """
     correct_return_value = [
         ("FastEthernet0/0", "15.0.15.2", "up", "up"),
@@ -59,13 +58,12 @@ def test_function_return_value_different_args():
     ]
 
     return_value = task_15_2.parse_sh_ip_int_br("sh_ip_int_br_2.txt")
-    assert return_value != None, "The function returns None"
+    assert return_value != None, "Функция ничего не возвращает"
     assert (
         type(return_value) == list
-    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
-    # The lists are sorted so that there is no error if the addresses are written
-    # in the list in a different order. In this task, the order of the tuples
-    # in the list is not important.
+    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    # Списки сортируются чтобы не было ошибки, если строки записаны в списке в другом порядке
+    # В этом задании порядок кортежей в списке не важен
     assert sorted(correct_return_value) == sorted(
         return_value
-    ), "Function returns wrong value"
+    ), "Функция возвращает неправильное значение"

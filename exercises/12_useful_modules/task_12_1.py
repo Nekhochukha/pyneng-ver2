@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Task 12.1
+Задание 12.1
 
-Create a ping_ip_addresses function that checks if IP addresses are pingable.
+Создать функцию ping_ip_addresses, которая проверяет пингуются ли IP-адреса.
 
-The function expects a list of IP addresses as an argument.
+Функция ожидает как аргумент список IP-адресов.
 
-The function must return a tuple with two lists:
-* list of available IP addresses
-* list of unavailable IP addresses
+Функция должна возвращать кортеж с двумя списками:
+* список доступных IP-адресов
+* список недоступных IP-адресов
 
-To check the availability of an IP address, use the ping command.
+Для проверки доступности IP-адреса, используйте команду ping.
 
-
-Restriction: All tasks must be done using the topics covered in this and previous chapters.
+Ограничение: Все задания надо выполнять используя только пройденные темы.
 """

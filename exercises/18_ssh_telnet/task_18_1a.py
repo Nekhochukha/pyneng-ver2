@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Task 18.1a
+Задание 18.1a
 
-Copy the send_show_command function from task 18.1 and rewrite it to handle
-the exception that is thrown on authentication failure on the device.
+Скопировать функцию send_show_command из задания 18.1 и переделать ее таким образом,
+чтобы обрабатывалось исключение, которое генерируется при ошибке аутентификации
+на устройстве.
 
-When an error occurs, an exception message should be printed to stdout.
+При возникновении ошибки, на стандартный поток вывода должно выводиться
+сообщение исключения.
 
-To verify, change the password on the device or in the devices.yaml file.
-
+Для проверки измените пароль на устройстве или в файле devices.yaml.
 """

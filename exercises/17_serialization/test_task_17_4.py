@@ -6,23 +6,23 @@ sys.path.append("..")
 
 from pyneng_common_functions import check_function_exists, read_all_csv_content_as_list
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_function_created():
     """
-    Checking that the function has been created
+    Проверка, что функция создана
     """
     check_function_exists(task_17_4, "write_last_log_to_csv")
 
 
 def test_return_value(tmpdir):
     """
-    Function check
+    Проверка работы функции
     """
     correct_return_value = sorted(
         [
@@ -45,5 +45,7 @@ def test_return_value(tmpdir):
 
     assert (
         None == return_value
-    ), f"The function must return None, and it returns a {type(return_value).__name__}"
-    assert correct_return_value == sorted(csv_content), "Function returns wrong value"
+    ), f"По заданию функция должна возвращать None, а возвращает {type(return_value).__name__}"
+    assert correct_return_value == sorted(
+        csv_content
+    ), "Функция возвращает неправильное значение"

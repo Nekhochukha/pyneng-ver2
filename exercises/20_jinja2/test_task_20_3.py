@@ -1,6 +1,5 @@
 import os
 import pytest
-import task_20_1
 import sys
 
 sys.path.append("..")
@@ -11,17 +10,17 @@ from pyneng_common_functions import (
     render_jinja_template,
 )
 
-# Checking that the test is called via pytest ... and not python ...
+# Проверка что тест вызван через pytest ..., а не python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
+    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
 
 
 def test_templates_exists():
     assert os.path.exists(
         "templates/ospf.txt"
-    ), "Template templates/ospf.txt does not exist"
+    ), "Шаблон templates/ospf.txt не существует"
 
 
 def test_function_return_value():
@@ -63,9 +62,7 @@ def test_function_return_value():
     return_value = strip_empty_lines(return_value)
     return_lines = set(return_value.splitlines())
 
-    assert (
-        correct_lines == return_lines
-    ), "Not all lines are present in the router ospf configuration"
+    assert correct_lines == return_lines, "В итоговой конфигурации ospf не все строки"
 
 
 def test_function_different_input():
@@ -98,6 +95,4 @@ def test_function_different_input():
     return_value = strip_empty_lines(return_value)
     return_lines = set(return_value.splitlines())
 
-    assert (
-        correct_lines == return_lines
-    ), "Not all lines are present in the router ospf configuration"
+    assert correct_lines == return_lines, "В итоговой конфигурации ospf не все строки"
