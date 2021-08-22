@@ -52,7 +52,7 @@ def parse_cdp_neighbors(command_output):
             hostname_port = (hostname, line_tuple[1] + line_tuple[2])
             neighbors_port = (line_tuple[0], line_tuple[-2] + line_tuple[-1])
             dict_neighbors[hostname_port] = neighbors_port
-    return print(dict_neighbors)
+    return dict_neighbors
 
 
 if __name__ == "__main__":
