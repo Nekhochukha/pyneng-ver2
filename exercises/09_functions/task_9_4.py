@@ -83,5 +83,8 @@ def convert_config_to_dict(config_filename):
                     confg_dict[global_command].append(line.rstrip())
 
     return confg_dict
-print(convert_config_to_dict(filename))
+
+if __name__ == "__main__":
+    print(convert_config_to_dict(filename))
+
 

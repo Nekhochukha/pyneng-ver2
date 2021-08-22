@@ -38,12 +38,14 @@ Restriction: All tasks must be done using the topics covered in this and previou
 
 def parse_cdp_neighbors(command_output):
     """
-    Here we pass the output of the command as single string because it is in this form that
-    received command output from equipment. Taking the output of the command as an argument,
-    instead of a filename, we make the function more generic: it can work
-    both with files and with output from equipment.
-    Plus, we learn to work with such a output.
+    Тут мы передаем вывод команды одной строкой потому что именно в таком виде
+    будет получен вывод команды с оборудования. Принимая как аргумент вывод
+    команды, вместо имени файла, мы делаем функцию более универсальной: она может
+    работать и с файлами и с выводом с оборудования.
+    Плюс учимся работать с таким выводом.
     """
+   command_list = command_output.split('')
+   return(print(command_list))
 
 
 if __name__ == "__main__":
