@@ -74,9 +74,41 @@
 
 """
 
-infiles = [
-    "sh_cdp_n_sw1.txt",
-    "sh_cdp_n_r1.txt",
-    "sh_cdp_n_r2.txt",
-    "sh_cdp_n_r3.txt",
-]
+from task_11_1 import parse_cdp_neighbors
+from draw_network_graph import draw_topology
+
+def unique_network_map(topology_dict):
+
+    keys_dict = topology_dict.keys()
+    dict02 = topology_dict.copy()
+    print(type(dict02))
+    dict03 = {}
+    for key, value in topology_dict.items():
+        if value in keys_dict:
+            dict03[value] = key
+            del dict02[value]
+            del dict02[key]
+            keys_dict = dict02.keys()
+    dict02.update(dict03)
+    return dict02
+
+def create_network_map(filenames):
+    result = {}
+    for file in filenames:
+        with open(file) as f:
+            result.update(parse_cdp_neighbors(f.read()))
+
+    return result
+
+
+
+
+if __name__ == "__main__":
+    infiles = [
+        "sh_cdp_n_sw1.txt",
+        "sh_cdp_n_r1.txt",
+        "sh_cdp_n_r2.txt",
+        "sh_cdp_n_r3.txt",
+    ]
+    uniq_topology = unique_network_map(create_network_map(infiles))
+    draw_topology(uniq_topology, output_filename='ladas01')
