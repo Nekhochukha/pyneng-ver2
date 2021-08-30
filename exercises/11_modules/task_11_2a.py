@@ -92,6 +92,26 @@ def unique_network_map(topology_dict):
     dict02.update(dict03)
     return dict02
 
+"""
+Два варианта от Наташи
+
+def unique_network_map(topology_dict):
+    network_map = {}
+    for key, value in topology_dict.items():
+        if not network_map.get(value) == key:
+            network_map[key] = value
+    return network_map
+
+
+# второй вариант решения
+def unique_network_map(topology_dict):
+    network_map = {}
+    for key, value in topology_dict.items():
+        key, value = sorted([key, value])
+        network_map[key] = value
+    return network_map
+"""
+
 def create_network_map(filenames):
     result = {}
     for file in filenames:
