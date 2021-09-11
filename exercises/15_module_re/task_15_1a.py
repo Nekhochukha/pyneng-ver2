@@ -34,8 +34,8 @@ def get_ip_from_cfg(config):
         )
     with open(config) as f:
         match = regex.finditer(f.read())
-
     result = {m.group("intf"): m.group("ip", "mask") for m in match}
     return result
+
 
 print(get_ip_from_cfg('config_r2.txt'))
